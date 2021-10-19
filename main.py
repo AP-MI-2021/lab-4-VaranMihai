@@ -28,6 +28,26 @@ def test_sirul_se_afla_in_lista():
     assert sirul_se_afla_in_lista(['aaa', 'bbb', 'cmtc', 'drd', 'aaa'], 'drd') == "DA"
 
 
+def siruri_care_se_repeta(l):
+    '''
+    Afiseaza o lista cu toate sirurile de caractere care se repeta in lista principala
+    :param l: lista de siruri
+    :return: lsita de siruri care se repeta
+    '''
+    rezultat = []
+    ok = 0
+    for x in l:
+        for i in l:
+            if i == x and ok == 1:
+                rezultat.append(x)
+            else:
+                ok = 1
+    return rezultat
+
+
+def test_siruri_care_se_repeta():
+    assert siruri_care_se_repeta(['aaa', 'bbb', 'cmtc', 'drd', 'aaa']) == ['aaa']
+
 
 def palindrom(s):
     '''
@@ -85,7 +105,7 @@ def main():
             s = str(input("Dati sirul de caractere: "))
             print(sirul_se_afla_in_lista(l,s))
         elif optiune == "3":
-            pass
+            print(siruri_care_se_repeta(l))
         elif optiune == "4":
             print(siruri_palindroame(l))
         elif optiune == "a":
